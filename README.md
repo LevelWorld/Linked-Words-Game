@@ -6,6 +6,7 @@ You do such by linking the given word's last letter to a word you provide that s
 Your score is determined by the number of valid entries you provide.
 
 raw text file data is from the following sources:
+
 http://deron.meranda.us/data/census-dist-female-first.txt (4275 entries)
 http://deron.meranda.us/data/census-dist-male-first.txt (1219 entries)
 male and female names combined: http://deron.meranda.us/data/census-derived-all-first.txt
