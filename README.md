@@ -5,12 +5,5 @@ The goal is to fill the LetterBank with all the letters of the alphabet.
 You do such by linking the given word's last letter to a word you provide that starts with that same letter.
 Your score is determined by the number of valid entries you provide.
 
-raw text file data is from the following sources:
-
-http://deron.meranda.us/data/census-dist-female-first.txt (4275 entries)
-
-http://deron.meranda.us/data/census-dist-male-first.txt (1219 entries)
-
-male and female names combined: http://deron.meranda.us/data/census-derived-all-first.txt
-
-https://gist.github.com/atduskgreg/3cf8ef48cb0d29cf151bedad81553a54
+You will need a large text file to play this game, if you need such go to my For-Stuff-That-is-Hard-Find repository.
+https://github.com/LevelWorld/For-Stuff-That-is-Hard-Find
