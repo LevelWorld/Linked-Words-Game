@@ -1,0 +1,77 @@
+// Leul Wolde
+// game
+
+import java.util.*;
+import java.io.*;
+
+public class Main  {
+  public static void main(String[] args) throws FileNotFoundException{
+
+    // Creates the list of approved words for the game
+    ArrayList<String> approved = new ArrayList<String>();
+    Scanner scan = new Scanner( new File ("dictionary.txt"));
+
+    // count the number of words used for a score
+    int count = 0;
+    while(scan.hasNext()){
+      approved.add(scan.nextLine());
+    }
+
+    // picks the starting word
+    Random rand = new Random();
+    int target_num = rand.nextInt(approved.size());
+
+    // the word to be linked
+    String target = approved.get(target_num);
+
+    // The words that have been used are store in this list
+    ArrayList<String> used = new ArrayList<String>();
+    used.add(target);
+
+    // The initals of your words are stored here.
+    char[] bank = new char[28];
+    bank[0] = '[';
+    bank[27] = ']';
+    for(int i = 1; i < bank.length - 1; i++){
+      bank[i] = '?';
+    }
+    
+    System.out.println(bank);
+    
+    // shows your bank balance 
+    String test = bank.toString();
+    
+    while(test.indexOf('?') == -1 ){
+      count += 1;
+      System.out.println( "Link the word | "  + target + " ");
+      System.out.print ("Your word is : " );
+
+      // user's input
+      scan = new Scanner(System.in);
+      String response = scan.nextLine();
+
+      // Test if you met the rules of the game
+      char f_inital = response.charAt(0);
+      char e_inital = target.charAt(target.length() - 1 );
+      if (f_inital == e_inital && !used.contains(response)  && approved.contains(response)){
+        String alpha = "[abcdefghijklmnopqrstuvwxyz]";
+        // for keeping score of your bank balance
+        int hit = alpha.indexOf(f_inital); 
+        bank[hit] = f_inital;
+    
+    
+        System.out.println("\nGoal   =  " + alpha);
+        System.out.print("current = ");
+        System.out.println(bank);
+
+        // Turns your response into the word you will need to link. 
+        target = response;
+        test = bank.toString();
+      }else{
+        continue;
+      }
+    }
+    scan.close();
+    System.out.println("Congrats it took " + count + " words for you to win!");
+  } 
+}
